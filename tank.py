@@ -8,6 +8,7 @@ from shell import Shell
 from block import Block
 from level_loader import LevelLoader
 from life_bar import LifeBar
+from mina import Mina
 
 
 class Tank(ImageActor):
@@ -27,7 +28,7 @@ class Tank(ImageActor):
     
         #
         actor_collided = self.check_collision()
-        if actor_collided is not None and not isinstance(actor_collided, Shell):
+        if actor_collided is not None and not isinstance(actor_collided, Shell) and not isinstance(actor_collided, Mina):
             self._x = self._old_x
             self._y = self._old_y
             self._rect = self._surf2.get_rect(center=(self._x, self._y))

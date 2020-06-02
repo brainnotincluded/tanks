@@ -16,8 +16,8 @@ class LifeBar(Actor):
     def set_scene(self, scene):
         pass
     
-    def decrease_life(self) -> bool:
-        self._value -= 5
+    def decrease_life(self, uron) -> bool:
+        self._value -= uron
         if self._value <= 0:
             return False
         return True

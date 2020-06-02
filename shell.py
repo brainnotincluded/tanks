@@ -6,7 +6,8 @@ import pygame
 class Shell(ImageActor):
     
     def __init__(self, x, y, vx, vy, tank):
-        super().__init__('C:\\Users\\vorob\\Pictures\\Saved Pictures\\shell.png', x, y)
+        super().__init__('shell.png', x, y)
+        self._boom_surf = pygame.image.load('boom.png')
         self._tank = tank
         self._vx = vx
         self._vy = vy
@@ -28,11 +29,11 @@ class Shell(ImageActor):
             from tank import Tank
             if isinstance(actor_collided, Tank):
                 print('yes')
-                if not actor_collided._life.decrease_life():
+                if not actor_collided._life.decrease_life(5):
                     self._scene.remove_actor(actor_collided)
-            boom_surf = pygame.image.load('C:\\Users\\vorob\\Pictures\\Saved Pictures\\boom.png')
-            boom_rect = boom_surf.get_rect(center=(self._x, self._y))
-            sc.blit(boom_surf, boom_rect)
+            
+            boom_rect = self._boom_surf.get_rect(center=(self._x, self._y))
+            sc.blit(self._boom_surf, boom_rect)
             self._scene.remove_actor(self)
         
         return True

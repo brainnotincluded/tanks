@@ -1,4 +1,5 @@
 from block import Block
+from mina import Mina
 
 
 class LevelLoader:
@@ -12,7 +13,8 @@ class LevelLoader:
             for j, c in enumerate(line):
                 if c == 'o':
                     scene.add_actor(Block(j*50+25, i*50+25))
-                
+                if c == 'x':
+                    scene.add_actor(Mina(j*50+25, i*50+25))
 
 if __name__ == '__main__':
-    LevelLoader('C:\\Users\\vorob\\Documents\\python_files\\map_z.txt')
+    LevelLoader('map_z.txt')
