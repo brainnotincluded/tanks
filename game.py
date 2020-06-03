@@ -1,6 +1,4 @@
 import pygame
-from image_actor import ImageActor
-from scene import Scene
 
 
 class Game:
@@ -15,7 +13,7 @@ class Game:
             j.init()
             self._joysticks.append(j)
         print(self._joysticks)
-        self._sc = pygame.display.set_mode((w, h))
+        self._sc = pygame.display.set_mode((w, h), pygame.FULLSCREEN)
         self.width = w
         self.height = h
         
@@ -38,22 +36,7 @@ class Game:
             pygame.display.update()
             # задержка
             pygame.time.delay(30)
-            
-            
-if __name__ == '__main__':
-    
-    from life import Life
-    
-    
-    scene = Scene()
-    #scene.add_actor(ImageActor('C:\\Users\\vorob\\Pictures\\Saved Pictures\\kub.png', 100, 100))
-    #scene.add_actor(ImageActor('C:\\Users\\vorob\\Pictures\\Saved Pictures\\kub.png', 110, 100))
-    #scene.add_actor(ImageActor('C:\\Users\\vorob\\Pictures\\Saved Pictures\\kub.png', 100, 110))
-    #scene.add_actor(ImageActor('C:\\Users\\vorob\\Pictures\\Saved Pictures\\kub.png', 110, 110))
-    life = Life()
-    game = Game(life, 1000, 500)
-    
-    game.run()
+
 
 
 
