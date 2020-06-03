@@ -18,7 +18,8 @@ tank1 = Tank(
     {'u': pygame.K_w,
      'd': pygame.K_s,
      'l': pygame.K_a,
-     'r': pygame.K_d
+     'r': pygame.K_d,
+     's': pygame.K_q
      }, 0, life1)
 tank2 = Tank(
     'kub4.png',
@@ -26,7 +27,8 @@ tank2 = Tank(
     {'u': pygame.K_UP,
      'd': pygame.K_DOWN,
      'l': pygame.K_LEFT,
-     'r': pygame.K_RIGHT}, 1, life2)
+     'r': pygame.K_RIGHT,
+     's': pygame.K_PAGEDOWN}, 1, life2)
 scene = Scene()
 game_ui = Scene()
 

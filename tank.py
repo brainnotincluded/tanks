@@ -40,8 +40,12 @@ class Tank(ImageActor):
         return True
          
     def handle_joykeys(self):
-        #print(f'{self._game._joysticks}')
-        #print(f'{self._joy}')
+        self._old_x = self._x
+        self._old_y = self._y
+
+        if len(self._game._joysticks) <= self._joy:
+            return
+
         j = self._game._joysticks[self._joy]
         if j.get_axis(0) > 0.5:
             self._a -= self._va
@@ -49,20 +53,13 @@ class Tank(ImageActor):
         elif j.get_axis(0) < -0.5:
             self._a += self._va
             self.vx_vy_update()
-            
-        self._old_x = self._x
-        self._old_y = self._y
+
         if j.get_axis(1) > 0.5:
             self._x -= self._vx
             self._y += self._vy
         elif j.get_axis(1) < -0.5:
             self._x += self._vx
             self._y -= self._vy
-        
-        
-        #if j.get_button(5):
-        #    print('yes')
-            
             
             
     def vx_vy_update(self):
@@ -83,18 +80,22 @@ class Tank(ImageActor):
     
     def handle_keys(self, keys):
         if keys [self._key_map['l']]:
-                self._a -= self._va
+                self._a += self._va
                 self.vx_vy_update()
         elif keys [self._key_map['r']]:
-                self._a += self._va
+                self._a -= self._va
                 self.vx_vy_update() 
 
         if keys [self._key_map['u']]:
                 self._x += self._vx
-                self._y += self._vy
+                self._y -= self._vy
         elif keys [self._key_map['d']]:
                 self._x -= self._vx
-                self._y -= self._vy
+                self._y += self._vy
+        if keys [self._key_map['s']]:
+            shell = Shell(self._x, self._y, self._vx * 3, self._vy * 3, self)
+            self._scene.add_actor(shell)
+
         rect = self._surf2.get_rect()
         w = rect.width / 2
         h = rect.height / 2
