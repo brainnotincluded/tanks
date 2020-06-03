@@ -11,7 +11,7 @@ from tank import Tank
 
 
 life1 = LifeBar(5, 2, (0,100,0))
-life2 = LifeBar(1095, 2, (255,0,0))
+life2 = LifeBar(1095, 2, (255,0,0))   
 tank1 = Tank(
     'kub3.png',
     0, 800,
