@@ -36,12 +36,13 @@ class Tank(ImageActor):
         #
         sc.blit(self._surf2, self._rect)
 
+        self._old_x = self._x
+        self._old_y = self._y
+
         self.handle_joykeys()
         return True
          
     def handle_joykeys(self):
-        self._old_x = self._x
-        self._old_y = self._y
 
         if len(self._game._joysticks) <= self._joy:
             return

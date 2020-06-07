@@ -2,7 +2,7 @@ import pygame
 
 
 class Game:
-    def __init__(self, actor, w, h):
+    def __init__(self, actor):
         self._actor = actor
         self._actor.set_game(self)
         pygame.init()
@@ -13,7 +13,10 @@ class Game:
             j.init()
             self._joysticks.append(j)
         print(self._joysticks)
-        self._sc = pygame.display.set_mode((w, h), pygame.FULLSCREEN)
+        infoObject = pygame.display.Info()
+        # pygame.display.set_mode((infoObject.current_w, infoObject.current_h))
+        w, h = 1200, 800 #infoObject.current_w, infoObject.current_h
+        self._sc = pygame.display.set_mode((w, h)) #, pygame.FULLSCREEN)
         self.width = w
         self.height = h
         

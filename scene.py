@@ -46,7 +46,7 @@ class Scene(Actor):
             actor.handle_joystick(j)
     
     def get_actors(self):
-        return self.actors
+        return self._actors
     
     def get_actors_rects(self, exclude_actor):
         actors = [actor for actor in self._actors if actor != exclude_actor]
